@@ -1,8 +1,27 @@
 body {
     background-color: darkgrey;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
     text-align: center;
     text-decoration: underline;
+}
+
+h2{
+    text-align: center;
+    
+}
+
+#board {
+    border: 2px solid red;
+    border-radius: 10%;
+    background-color: darkgreen;
+    height: 75vh;
+    width: 60vw;
 }
