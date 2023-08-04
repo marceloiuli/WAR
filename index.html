@@ -10,16 +10,22 @@
 </head>
 <body>
     <h1>GO TO WAR</h1>
-    <div class="card dK"></div>
     <h2>Ready to play?</h2>
-    <section id="board">
-        <div id="comDeck"></div>
-        <div id="comWar"></div>
-        <div id="comWin"></div>
-        
-        <div id="playerDeck"></div>
-        <div id="playerWar"></div>
-        <div id="playerWin"></div>
+    <section id="comScore">
+        <div class="score">Computer Score:</div>
+    </section>
+    <section class="board" id="top">
+        <div class="card back-red"></div>
+        <div class="card back-red"></div>
+        <div class="card west hA" id="comWinPile"></div>
+    </section>
+    <section class="board" id="bottom">  
+        <div class="card back-blue"></div>
+        <div class="card back-blue"></div>
+        <div class="card west cA"></div>
+    </section> 
+    <section id="playerScore">
+        <div class="score">Player Score:</div>
     </section>
 </body>
 </html>
