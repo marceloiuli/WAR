@@ -1,3 +1,8 @@
 body {
-    background-color: aqua;
+    background-color: darkgrey;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
 }
