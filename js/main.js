@@ -18,7 +18,7 @@ function info(evt){
     console.log(evt.target)
 }
 
-playDeck.addEventListener('click', handleCard)
+playDeck.addEventListener('click', handleCards)
 playWar.addEventListener('click', handleScore)
 resetBtn.addEventListener('click', init)
 /*----- functions -----*/
@@ -31,5 +31,5 @@ function init() {
 
 //stub up render func to update state
 function render() {
-    
+
 }
