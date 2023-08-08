@@ -24,7 +24,7 @@ const resetBtn = document.querySelector('button')
 //     console.log(evt.target)
 // }
 
-// playDeck.addEventListener('click', handleCards)
+playDeck.addEventListener('click', handleCards)
 // playWar.addEventListener('click', handleScore)
 // resetBtn.addEventListener('click', initialize)
 /*----- functions -----*/
@@ -55,5 +55,7 @@ function shuffle(arr) {
     return shuffledDeck;
 }
 
-// playerDeck = shuffledDeck.slice(0, 26)
-// computerDeck = shuffledDeck.slice(26)
+function handleCards() {
+    playWar.innerHTML = `<div class="card ${playerDeck.pop()} large" id="playWar"></div>`
+    comWar.innerHTML = `<div class="card ${computerDeck.pop()} large" id="comWar"></div>`
+}
