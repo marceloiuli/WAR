@@ -18,9 +18,13 @@ h1 {
     color: black;
 }
 
+p {
+    font-weight: bold;
+}
+
 h2{
     text-align: center;
-    text-weight: bold;
+    font-weight: bold;
 }
 
 .board {
