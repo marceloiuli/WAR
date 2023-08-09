@@ -5,19 +5,20 @@ const DECK = [
 'd02', 'd03', 'd04', 'd05', 'd06', 'd07', 'd08', 'd09', 'd10', 'dJ', 'dQ', 'dK', 'dA',
 'h02', 'h03', 'h04', 'h05', 'h06', 'h07', 'h08', 'h09', 'h10', 'hJ', 'hQ', 'hK', 'hA'
 ];
-
-const RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 /*----- state variables -----*/
 let playerDeck = [];
 let computerDeck = [];
-
+let playerScore = 0
+let computerScore = 0
 /*----- cached elements  -----*/
 //const boardEl = document.getElementsByClassName('board')
 const msgEl = document.querySelector('h2')
 const playDeck = document.getElementById('playDeck')
 const playWar = document.getElementById('playWar')
+const playScore = document.getElementById('playScore')
 const comDeck = document.getElementById('comDeck')
 const comWar = document.getElementById('comWar')
+const comScore = document.getElementById('comScore')
 const resetBtn = document.querySelector('button')
 /*----- event listeners -----*/
 document.addEventListener('click', info)
@@ -26,7 +27,7 @@ function info(evt){
 }
 
 playDeck.addEventListener('click', handleCards)
-// playWar.addEventListener('click', handleScore)
+playWar.addEventListener('click', handleScore)
 // resetBtn.addEventListener('click', initialize)
 /*----- functions -----*/
 initialize();
@@ -59,8 +60,6 @@ function shuffle(arr) {
 function handleCards() {
     const playerValue = playerDeck.pop();
     const computerValue = computerDeck.pop();
-    let playerRank = 0;
-    let computerRank = 0;
     playWar.innerHTML = `<div class="card ${playerValue} large" id="playWar"></div>`;
     comWar.innerHTML = `<div class="card ${computerValue} large" id="comWar"></div>`;
     if (playerValue.length === 3) playerRank = parseInt(playerValue[2]) !== 0 ? parseInt(playerValue[2]) : 10;
@@ -84,10 +83,19 @@ function handleCards() {
     }
     else if (playerRank > computerRank) {
         msgEl.innerText = 'YOU WIN THIS BATTLE!'
+        playerScore += 2
     }
     else {
         msgEl.innerText = 'COMPUTER WON THIS BATTLE!'
+        computerScore += 2
     };
     console.log(playerRank)
     console.log(computerRank)
+};
+
+function handleScore() {
+    const playerWin = playScore.innerText = `${playerScore}`
+    const comWin = comScore.innerText = `${computerScore}`
+    playWar.innerHTML = `<div class="" id="playWar"></div>`;
+    comWar.innerHTML = `<div class="" id="comWar"></div>`;
 }
