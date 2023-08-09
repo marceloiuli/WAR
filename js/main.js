@@ -6,12 +6,13 @@ const DECK = [
 'h02', 'h03', 'h04', 'h05', 'h06', 'h07', 'h08', 'h09', 'h10', 'hJ', 'hQ', 'hK', 'hA'
 ];
 
+const RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 /*----- state variables -----*/
 let playerDeck = [];
 let computerDeck = [];
 
 /*----- cached elements  -----*/
-const boardEl = document.getElementsByClassName('board')
+//const boardEl = document.getElementsByClassName('board')
 const msgEl = document.querySelector('h2')
 const playDeck = document.getElementById('playDeck')
 const playWar = document.getElementById('playWar')
@@ -19,10 +20,10 @@ const comDeck = document.getElementById('comDeck')
 const comWar = document.getElementById('comWar')
 const resetBtn = document.querySelector('button')
 /*----- event listeners -----*/
-// document.addEventListener('click', info)
-// function info(evt){
-//     console.log(evt.target)
-// }
+document.addEventListener('click', info)
+function info(evt){
+    console.log(evt.target)
+}
 
 playDeck.addEventListener('click', handleCards)
 // playWar.addEventListener('click', handleScore)
@@ -56,6 +57,29 @@ function shuffle(arr) {
 }
 
 function handleCards() {
-    playWar.innerHTML = `<div class="card ${playerDeck.pop()} large" id="playWar"></div>`
-    comWar.innerHTML = `<div class="card ${computerDeck.pop()} large" id="comWar"></div>`
+    const playerValue = playerDeck.pop();
+    const computerValue = computerDeck.pop();
+    let playerRank = 0;
+    let computerRank = 0;
+    playWar.innerHTML = `<div class="card ${playerValue} large" id="playWar"></div>`;
+    comWar.innerHTML = `<div class="card ${computerValue} large" id="comWar"></div>`;
+    if (playerValue.length === 3) playerRank = parseInt(playerValue[2]) !== 0 ? parseInt(playerValue[2]) : 10;
+    if (playerValue.length === 2) {
+        //playerValue[1] === '1' ? playerRank = 10 : null
+        playerValue[1] === 'J' ? playerRank = 11 : null
+        playerValue[1] === 'Q' ? playerRank = 12 : null
+        playerValue[1] === 'K' ? playerRank = 13 : null
+        playerValue[1] === 'A' ? playerRank = 14 : null
+    };
+    
+    if (computerValue.length === 3) computerRank = parseInt(computerValue[2]) !== 0 ? parseInt(computerValue[2]) : 10;
+    if (computerValue.length === 2) {
+        //computerValue[1] === '1' ? computerRank = 10 : null
+        computerValue[1] === 'J' ? computerRank = 11 : null
+        computerValue[1] === 'Q' ? computerRank = 12 : null
+        computerValue[1] === 'K' ? computerRank = 13 : null
+        computerValue[1] === 'A' ? computerRank = 14 : null
+    };
+    console.log(playerRank)
+    console.log(computerRank)
 }

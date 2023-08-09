@@ -42,12 +42,14 @@ h2{
     font-size: 3vmin;
     font-weight: bold;
     color: white;
+    text-decoration: underline;
 }
 
 #playScore {
     font-size: 3vmin;
     font-weight: bold;
     color: white;
+    text-decoration: underline;
 }
 
 #top {
