@@ -65,7 +65,6 @@ function handleCards() {
     comWar.innerHTML = `<div class="card ${computerValue} large" id="comWar"></div>`;
     if (playerValue.length === 3) playerRank = parseInt(playerValue[2]) !== 0 ? parseInt(playerValue[2]) : 10;
     if (playerValue.length === 2) {
-        //playerValue[1] === '1' ? playerRank = 10 : null
         playerValue[1] === 'J' ? playerRank = 11 : null
         playerValue[1] === 'Q' ? playerRank = 12 : null
         playerValue[1] === 'K' ? playerRank = 13 : null
@@ -74,11 +73,20 @@ function handleCards() {
     
     if (computerValue.length === 3) computerRank = parseInt(computerValue[2]) !== 0 ? parseInt(computerValue[2]) : 10;
     if (computerValue.length === 2) {
-        //computerValue[1] === '1' ? computerRank = 10 : null
         computerValue[1] === 'J' ? computerRank = 11 : null
         computerValue[1] === 'Q' ? computerRank = 12 : null
         computerValue[1] === 'K' ? computerRank = 13 : null
         computerValue[1] === 'A' ? computerRank = 14 : null
+    };
+
+    if (playerRank === computerRank) {
+        msgEl.innerText = 'THIS MEANS WAR!!!'
+    }
+    else if (playerRank > computerRank) {
+        msgEl.innerText = 'YOU WIN THIS BATTLE!'
+    }
+    else {
+        msgEl.innerText = 'COMPUTER WON THIS BATTLE!'
     };
     console.log(playerRank)
     console.log(computerRank)
