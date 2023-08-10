@@ -6,10 +6,7 @@ const DECK = [
 'h02', 'h03', 'h04', 'h05', 'h06', 'h07', 'h08', 'h09', 'h10', 'hJ', 'hQ', 'hK', 'hA'
 ];
 /*----- state variables -----*/
-let playerDeck = [];
-let computerDeck = [];
-let playerScore = 0
-let computerScore = 0
+let playerDeck, computerDeck, playerScore, computerScore, winner, playerValue,computerValue, playerRank, computerRank
 /*----- cached elements  -----*/
 //const boardEl = document.getElementsByClassName('board')
 const msgEl = document.querySelector('h2')
@@ -21,81 +18,130 @@ const comWar = document.getElementById('comWar')
 const comScore = document.getElementById('comScore')
 const resetBtn = document.querySelector('button')
 /*----- event listeners -----*/
-document.addEventListener('click', info)
-function info(evt){
-    console.log(evt.target)
-}
-
 playDeck.addEventListener('click', handleCards)
-playWar.addEventListener('click', handleScore)
-// resetBtn.addEventListener('click', initialize)
+playWar.addEventListener('click', handleWarClick)
+resetBtn.addEventListener('click', initialize)
 /*----- functions -----*/
 initialize();
 //initialize all state, then call render()
 function initialize() {
+    playerDeck = []
+    computerDeck = []
+    playerScore = 0
+    computerScore = 0
     const shuffledDeck = shuffle(DECK)
     playerDeck = shuffledDeck.slice(0, 26)
     computerDeck = shuffledDeck.slice(26)
-    //render()
-}
-
-//stub up render func to update state
-function render() {
-    renderBoard()
-    renderTurn()
-    renderScore()
-    renderWinner()
+    resetBtn.style.visibility = 'hidden'
+    winner = null
+    render()
 }
 
 function shuffle(arr) {
-    const shuffledDeck = [...DECK];
+    const shuffledDeck = [...DECK]
     for(let i = 0; i < shuffledDeck.length; i++) {
-        const randomOrder = Math.floor((shuffledDeck.length - i) * Math.random());
-        const randomDeck = shuffledDeck.splice(randomOrder, 1);
-        shuffledDeck.push(...randomDeck);
+        const randomOrder = Math.floor((shuffledDeck.length - i) * Math.random())
+        const randomDeck = shuffledDeck.splice(randomOrder, 1)
+        shuffledDeck.push(...randomDeck)
     }
     return shuffledDeck;
 }
 
+function handleWarClick() {
+    playerValue = null
+    computerValue = null
+    playerRank = null
+    computerRank = null
+    render()
+}
+
 function handleCards() {
-    const playerValue = playerDeck.pop();
-    const computerValue = computerDeck.pop();
-    playWar.innerHTML = `<div class="card ${playerValue} large" id="playWar"></div>`;
-    comWar.innerHTML = `<div class="card ${computerValue} large" id="comWar"></div>`;
-    if (playerValue.length === 3) playerRank = parseInt(playerValue[2]) !== 0 ? parseInt(playerValue[2]) : 10;
+    playerValue = playerDeck.pop();
+    computerValue = computerDeck.pop();
+    if (playerValue.length === 3) playerRank = parseInt(playerValue[2]) !== 0 ? parseInt(playerValue[2]) : 10
     if (playerValue.length === 2) {
         playerValue[1] === 'J' ? playerRank = 11 : null
         playerValue[1] === 'Q' ? playerRank = 12 : null
         playerValue[1] === 'K' ? playerRank = 13 : null
         playerValue[1] === 'A' ? playerRank = 14 : null
     };
-    
-    if (computerValue.length === 3) computerRank = parseInt(computerValue[2]) !== 0 ? parseInt(computerValue[2]) : 10;
+    if (computerValue.length === 3) computerRank = parseInt(computerValue[2]) !== 0 ? parseInt(computerValue[2]) : 10
     if (computerValue.length === 2) {
         computerValue[1] === 'J' ? computerRank = 11 : null
         computerValue[1] === 'Q' ? computerRank = 12 : null
         computerValue[1] === 'K' ? computerRank = 13 : null
         computerValue[1] === 'A' ? computerRank = 14 : null
     };
+    if (playerRank > computerRank) {
+        playerScore += 2
+    }
+    else if (playerRank < computerRank) {
+        computerScore += 2
+    }
+    checkWinner()
+    render()
+};
 
-    if (playerRank === computerRank) {
+function renderCards() {
+    if (playerValue && computerValue) {
+        playWar.innerHTML = `<div class="card ${playerValue} large" id="playWar"></div>`
+        comWar.innerHTML = `<div class="card ${computerValue} large" id="comWar"></div>`
+    } else {
+        playWar.innerHTML = `<div class="" id="playWar"></div>`
+        comWar.innerHTML = `<div class="" id="comWar"></div>`
+        msgEl.innerText = ''
+    }
+}
+
+function renderScore() {
+    playScore.innerText = `${playerScore}`
+    comScore.innerText = `${computerScore}`
+};
+
+function renderMessage() {
+    if(!playerRank && !computerRank) {
+        msgEl.innerText = ''
+    }
+    else if (playerRank === computerRank) {
         msgEl.innerText = 'THIS MEANS WAR!!!'
     }
     else if (playerRank > computerRank) {
         msgEl.innerText = 'YOU WIN THIS BATTLE!'
-        playerScore += 2
     }
     else {
         msgEl.innerText = 'COMPUTER WON THIS BATTLE!'
-        computerScore += 2
     };
-    console.log(playerRank)
-    console.log(computerRank)
+}
+
+function checkWinner() {
+    if (playerScore >= 26) {
+        winner = 'player'
+    } else if (computerScore >= 26) {
+        winner = 'computer'
+    } else if (!playerDeck.length && !computerDeck.length) {
+        winner = 'tie'
+    } else {
+        winner = null
+    };
 };
 
-function handleScore() {
-    const playerWin = playScore.innerText = `${playerScore}`
-    const comWin = comScore.innerText = `${computerScore}`
-    playWar.innerHTML = `<div class="" id="playWar"></div>`;
-    comWar.innerHTML = `<div class="" id="comWar"></div>`;
-}
+function renderWinner() {
+    if (winner === 'player') {
+        msgEl.innerText = 'YOU HAVE WON THE WAR!!!'
+        resetBtn.style.visibility = 'visible'
+    } else if (winner === 'computer') {
+        msgEl.innerText = 'COMPUTER DEFEATED YOU IN THE WAR...'
+        resetBtn.style.visibility = 'visible'
+    } else if (winner === 'tie') {
+        msgEl.innerText = '...THE WAR IS A DRAW SOMEHOW...'
+        resetBtn.style.visibility = 'visible'
+    }
+    
+};
+
+function render() {
+    renderCards()
+    renderScore()
+    renderMessage()
+    renderWinner()
+} 
