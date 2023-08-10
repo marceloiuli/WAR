@@ -5,10 +5,11 @@ const DECK = [
 'd02', 'd03', 'd04', 'd05', 'd06', 'd07', 'd08', 'd09', 'd10', 'dJ', 'dQ', 'dK', 'dA',
 'h02', 'h03', 'h04', 'h05', 'h06', 'h07', 'h08', 'h09', 'h10', 'hJ', 'hQ', 'hK', 'hA'
 ];
+
 /*----- state variables -----*/
 let playerDeck, computerDeck, playerScore, computerScore, winner, playerValue,computerValue, playerRank, computerRank
+
 /*----- cached elements  -----*/
-//const boardEl = document.getElementsByClassName('board')
 const msgEl = document.querySelector('h2')
 const playDeck = document.getElementById('playDeck')
 const playWar = document.getElementById('playWar')
@@ -17,10 +18,12 @@ const comDeck = document.getElementById('comDeck')
 const comWar = document.getElementById('comWar')
 const comScore = document.getElementById('comScore')
 const resetBtn = document.querySelector('button')
+
 /*----- event listeners -----*/
 playDeck.addEventListener('click', handleCards)
 playWar.addEventListener('click', handleWarClick)
 resetBtn.addEventListener('click', initialize)
+
 /*----- functions -----*/
 initialize();
 //initialize all state, then call render()
@@ -53,7 +56,7 @@ function handleWarClick() {
     playerRank = null
     computerRank = null
     render()
-}
+};
 
 function handleCards() {
     playerValue = playerDeck.pop();
@@ -91,7 +94,7 @@ function renderCards() {
         comWar.innerHTML = `<div class="" id="comWar"></div>`
         msgEl.innerText = ''
     }
-}
+};
 
 function renderScore() {
     playScore.innerText = `${playerScore}`
@@ -110,8 +113,8 @@ function renderMessage() {
     }
     else {
         msgEl.innerText = 'COMPUTER WON THIS BATTLE!'
-    };
-}
+    }
+};
 
 function checkWinner() {
     if (playerScore >= 26) {
@@ -122,7 +125,7 @@ function checkWinner() {
         winner = 'tie'
     } else {
         winner = null
-    };
+    }
 };
 
 function renderWinner() {
@@ -144,4 +147,4 @@ function render() {
     renderScore()
     renderMessage()
     renderWinner()
-} 
+};

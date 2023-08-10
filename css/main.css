@@ -74,11 +74,16 @@ h2{
 
 button {
     margin-top: 10px;
-    height: 26px;
-    border-radius: 25%;
+    height: 32px;
+    border-radius: 45%;
+    background-color: black ;
 }
 
 button:hover {
-    background-color: red;
-    color:black
+    color: red;
+    -webkit-transition: color 1s;
+    -moz-transition:    color 1s;
+    -ms-transition:     color 1s;
+    -o-transition:      color 1s;
+    transition:         color 1s;
 }
