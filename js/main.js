@@ -7,7 +7,16 @@ const DECK = [
 ];
 
 /*----- state variables -----*/
-let playerDeck, computerDeck, playerScore, computerScore, winner, playerValue,computerValue, playerRank, computerRank
+let playerDeck,
+    computerDeck,
+    playerScore,
+    computerScore,
+    computerRank,
+    playerValue,
+    computerValue,
+    playerRank,
+    winner
+    
 
 /*----- cached elements  -----*/
 const msgEl = document.querySelector('h2')
@@ -38,7 +47,7 @@ function initialize() {
     resetBtn.style.visibility = 'hidden'
     winner = null
     render()
-}
+};
 
 function shuffle(arr) {
     const shuffledDeck = [...DECK]
@@ -48,7 +57,7 @@ function shuffle(arr) {
         shuffledDeck.push(...randomDeck)
     }
     return shuffledDeck;
-}
+};
 
 function handleWarClick() {
     playerValue = null
@@ -104,14 +113,11 @@ function renderScore() {
 function renderMessage() {
     if(!playerRank && !computerRank) {
         msgEl.innerText = ''
-    }
-    else if (playerRank === computerRank) {
+    } else if (playerRank === computerRank) {
         msgEl.innerText = 'THIS MEANS WAR!!!'
-    }
-    else if (playerRank > computerRank) {
+    } else if (playerRank > computerRank) {
         msgEl.innerText = 'YOU WIN THIS BATTLE!'
-    }
-    else {
+    } else {
         msgEl.innerText = 'COMPUTER WON THIS BATTLE!'
     }
 };
@@ -139,7 +145,6 @@ function renderWinner() {
         msgEl.innerText = '...THE WAR IS A DRAW SOMEHOW...'
         resetBtn.style.visibility = 'visible'
     }
-    
 };
 
 function render() {
