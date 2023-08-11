@@ -11,7 +11,7 @@ Start Game:
 * JavaScript
 
 ### Getting Started
-[Play my game here](https://marceloiuli.github.io/WAR/ "WAR")
+[Play my game here](https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/start%20game.png "WAR")
 
 1. The user will click the link and the application will render 2 card tables with 2 seperate decks of cards on each table. (26 cards each)
 * Although the decks are different colors they have been shuffled from a single deck to ensure there will be no copies of cards played.
