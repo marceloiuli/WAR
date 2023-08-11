@@ -1,7 +1,8 @@
 # WAR (the card game)
+
 War is a card game game played by many where strategy may not come into play as much as other card games. The game of war is entirely based on luck. You and an opposing player each split a shuffled deck of cards and play those cards in order to have a higher rank than your oppponent. Since it's astronomically impossible to shuffle the cards advantageously, you must rely on the fate of the cards to beat your opponent.
 
-![alt text](https:// "Screenshot Of Start Game")
+![alt text]( "Screenshot Of Start Game")
 
 ## Technologies Used
 * HTML
@@ -9,7 +10,7 @@ War is a card game game played by many where strategy may not come into play as 
 * JavaScript
 
 ### Getting Started
-[Play my game here]()
+[Play my game here](https://https://marceloiuli.github.io/WAR/ "GO TO WAR")
 
 1. The user will click the link and the application will render 2 card tables with 2 seperate decks of cards on each table. (26 cards each)
 * Although the decks are different colors they have been shuffled from a single deck to ensure there will be no copies of cards played.
@@ -37,4 +38,4 @@ War is a card game game played by many where strategy may not come into play as 
 
 * Maybe add some styling to the bottom of the boards to not have so much extra space.
 
-* I was considering trying to make a button that could allow you to play a full game of war without any altered rules for players to choose between.
+* I am considering trying to make a button that could allow you to play a full game of war without any altered rules for players to choose between.

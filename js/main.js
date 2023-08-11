@@ -11,12 +11,11 @@ let playerDeck,
     computerDeck,
     playerScore,
     computerScore,
+    playerRank,
     computerRank,
     playerValue,
     computerValue,
-    playerRank,
     winner
-    
 
 /*----- cached elements  -----*/
 const msgEl = document.querySelector('h2')
@@ -29,18 +28,18 @@ const comScore = document.getElementById('comScore')
 const resetBtn = document.querySelector('button')
 
 /*----- event listeners -----*/
-playDeck.addEventListener('click', handleCards)
-playWar.addEventListener('click', handleWarClick)
 resetBtn.addEventListener('click', initialize)
 
 /*----- functions -----*/
 initialize();
-//initialize all state, then call render()
+
 function initialize() {
     playerDeck = []
     computerDeck = []
     playerScore = 0
     computerScore = 0
+    playDeck.addEventListener('click', handleCards)
+    playWar.addEventListener('click', handleWarClick)
     const shuffledDeck = shuffle(DECK)
     playerDeck = shuffledDeck.slice(0, 26)
     computerDeck = shuffledDeck.slice(26)
@@ -144,6 +143,10 @@ function renderWinner() {
     } else if (winner === 'tie') {
         msgEl.innerText = '...THE WAR IS A DRAW SOMEHOW...'
         resetBtn.style.visibility = 'visible'
+    }
+    if (winner) {
+        playDeck.removeEventListener('click', handleCards)
+        playWar.removeEventListener('click', handleWarClick)
     }
 };
 
