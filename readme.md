@@ -29,7 +29,7 @@ Start Game:
 ![alt text](https://imgur.com/mAzP6c7 "Winning Message Displayed Between Boards")
 
 5. After the final message for the end of the game, a button will be displayed under the player's board to reset the game(battlefield). If the user clicks this button the scores will reset back to zero and the new decks will be available for play.
-![alt text](https://imgur.com/7cJNKba "Screenshot Of Reset Button")
+!["Screenshot Of Reset Button"](https://imgur.com/7cJNKba)
 
 #### Next Steps:
 
