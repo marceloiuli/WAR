@@ -22,14 +22,14 @@ Start Game:
 
 3. As the user plays their card, a message between the boards will indicate whether you tied, lost, or won the round(battle).
 * Another rule I altered, is that in the case of a tie instead of drawing 2 cards then playing the third card, the scores will not update until the next hand is won.
-![alt text]("Updated Message For Each Round")
+<img src="https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/updated%20message.png"/>
 
 4. When either the computer or the player reaches 26 points on their board, the game will render a message saying who won the war!
 * In the case of many ties happening in the game however, the winning message rendered will indicate a draw when there are no longer cards to be played and neither player or computer could reach 26 points.
-![alt text]("Winning Message Displayed Between Boards")
+<img src="https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/winning%20message.png"/>
 
 5. After the final message for the end of the game, a button will be displayed under the player's board to reset the game(battlefield). If the user clicks this button the scores will reset back to zero and the new decks will be available for play.
-![alt text]("Screenshot Of Reset Button")
+<img src="https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/reset%20button.png">
 
 #### Next Steps:
 
