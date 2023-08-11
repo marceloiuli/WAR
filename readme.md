@@ -3,7 +3,7 @@
 War is a card game game played by many where strategy may not come into play as much as other card games. The game of war is entirely based on luck. You and an opposing player each split a shuffled deck of cards and play those cards in order to have a higher rank than your oppponent. Since it's astronomically impossible to shuffle the cards advantageously, you must rely on the fate of the cards to beat your opponent.
 
 Start Game:
-<img src="https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/start%20game.png">
+<img src="https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/start%20game.png"/>
 
 ## Technologies Used
 * HTML
@@ -18,7 +18,7 @@ Start Game:
 
 2. When the user clicks on their deck of cards, their card and simultaneously the computer's card will be played face up next to their deck. The game will automatically render the higher rank between the two cards and apply the cards won to the winners score.
 * I decided to alter the rules of war to play to a score of 26 cards instead of playing until a player has no cards left. This was to ensure quick games and replayability.
-![alt text]("Updated Score On Board")
+<img src="https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/updated%20score.png"/>
 
 3. As the user plays their card, a message between the boards will indicate whether you tied, lost, or won the round(battle).
 * Another rule I altered, is that in the case of a tie instead of drawing 2 cards then playing the third card, the scores will not update until the next hand is won.
