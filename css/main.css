@@ -68,10 +68,6 @@ h2{
     align-items: center;
 }
 
-#playPile {
-    flex-direction: row-reverse;
-}
-
 button {
     margin-top: 10px;
     height: 35px;

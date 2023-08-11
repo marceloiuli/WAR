@@ -33,6 +33,8 @@ Start Game:
 
 #### Next Steps:
 
+* I want to add a guard where you would have to use the handleWarClick function so you would have to clear the board before the next round(battle).
+
 * I'd like to fix the size of the board when in a full screen window so it's not as stretched out.
 
 * Maybe add some styling to the bottom of the boards to not have so much extra space.
