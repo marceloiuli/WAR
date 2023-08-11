@@ -3,7 +3,7 @@
 War is a card game game played by many where strategy may not come into play as much as other card games. The game of war is entirely based on luck. You and an opposing player each split a shuffled deck of cards and play those cards in order to have a higher rank than your oppponent. Since it's astronomically impossible to shuffle the cards advantageously, you must rely on the fate of the cards to beat your opponent.
 
 Start Game:
-<img src="https://imgur.com/0DMAwjN">
+<img src="https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/start%20game.png">
 
 ## Technologies Used
 * HTML
@@ -11,7 +11,7 @@ Start Game:
 * JavaScript
 
 ### Getting Started
-[Play my game here](https://github.com/marceloiuli/WAR/blob/gh-pages/images/screenshots/start%20game.png "WAR")
+[Play my game here](https://marceloiuli.github.io/WAR/ "WAR")
 
 1. The user will click the link and the application will render 2 card tables with 2 seperate decks of cards on each table. (26 cards each)
 * Although the decks are different colors they have been shuffled from a single deck to ensure there will be no copies of cards played.
